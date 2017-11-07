@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.redacdat.MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ConexionHTTP"
+        android:text="@string/btn_ConexionHTTP"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ConexionAsincrona"
+        android:text="@string/btn_ConexionAsincrona"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ConexionAAHC"
+        android:text="@string/btn_ConexionAAHC"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ConexionVolley"
+        android:text="@string/btn_ConexionVolley"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Descarga"
+        android:text="@string/btn_Descarga"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_SubirFichero"
+        android:text="@string/btn_SubirFichero"
+        android:onClick="onClick_lanzarExs"
+        android:layout_gravity="center"/>
+
+
+
+</LinearLayout>

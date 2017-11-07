@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RedACDAT</string>
+
+    <string name="btn_ConexionHTTP">HTTP</string>
+    <string name="btn_ConexionAsincrona">Asincrona</string>
+    <string name="btn_ConexionAAHC">AAHC</string>
+    <string name="btn_ConexionVolley">Volley</string>
+    <string name="btn_Descarga">Descarga</string>
+    <string name="btn_SubirFichero">Subir fichero</string>
+</resources>
