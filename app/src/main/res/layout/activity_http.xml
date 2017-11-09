@@ -34,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:text="Apache"
                 android:id="@+id/rdB_Apache"
-                android:onClick="onClick_HTTP"/>
+                android:onClick="onClick_HTTP"
+                android:checked="true"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
