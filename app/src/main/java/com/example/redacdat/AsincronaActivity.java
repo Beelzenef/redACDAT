@@ -47,8 +47,16 @@ public class AsincronaActivity extends AppCompatActivity {
 
     private void establecerConexion() {
         String url = edT_URL.getText().toString();
+        String modoConexion = "";
 
-        new ConectarAsincrona().execute(url);
+        if (rdB_Apache.isChecked()) {
+            modoConexion = "apache";
+        }
+        else {
+            modoConexion = "java";
+        }
+
+        new ConectarAsincrona().execute(url, modoConexion);
 
     }
 
@@ -81,9 +89,9 @@ public class AsincronaActivity extends AppCompatActivity {
         protected Resultado doInBackground(String... cadena) {
 
             try {
-                if (rdB_Java.isChecked())
+                if (cadena[1].equals("java"))
                     resultado = Conectar.conectarJava(cadena[0]);
-                else
+                if (cadena[1].equals("apache"))
                     resultado = Conectar.conectarApache(cadena[0]);
 
             } catch (Exception e) {
