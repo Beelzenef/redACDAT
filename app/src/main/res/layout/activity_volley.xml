@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.redacdat.VolleyActivity">
 
-</android.support.constraint.ConstraintLayout>
+<TextView
+    android:id="@+id/txtV_Introducir"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Introduzca una URL"/>
+
+<EditText
+android:id="@+id/edT_URLVolley"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:ems="10"
+android:inputType="textUri"
+android:text="http://www.google.es/"/>
+
+<Button
+android:id="@+id/btn_ConexionVolley"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Conectar"
+android:onClick="onClick_Volley"/>
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+<WebView
+    android:id="@+id/webV_ContenidoVolley"
+    android:layout_width="match_parent"
+    android:layout_height="331dp">
+
+</WebView>
+
+<TextView
+    android:id="@+id/txtV_TiempoVolley"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="Tiempo:"/>
+</LinearLayout>
+
+    </LinearLayout>
+
