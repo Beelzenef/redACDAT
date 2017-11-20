@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.redacdat.DescargaActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/edT_URLImagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://192.168.3.57/acceso/picasso/perro.jpg"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_DescargarImagen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:onClick="onClick_descargarImgen"
+            android:text="Descargar imagen"/>
+
+        <Button
+            android:id="@+id/btn_DescargarFichero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:onClick="onClick_descargarImgen"
+            android:text="Descargar OkHTTP"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgV_ImagenDescargada"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/placeholder"/>
+
+</LinearLayout>

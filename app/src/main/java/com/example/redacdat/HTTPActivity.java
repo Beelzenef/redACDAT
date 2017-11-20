@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.redacdat.red.Conectar;
+import com.example.redacdat.red.Resultado;
+
 public class HTTPActivity extends AppCompatActivity {
 
     EditText edT_URL;

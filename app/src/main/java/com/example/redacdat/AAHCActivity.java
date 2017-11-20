@@ -9,6 +9,7 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.redacdat.red.RestClient;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 import cz.msebera.android.httpclient.Header;

@@ -20,6 +20,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.redacdat.red.MySingleton;
 
 import java.io.UnsupportedEncodingException;
 
@@ -59,11 +60,12 @@ public class VolleyActivity extends AppCompatActivity {
         }
     }
 
-    public void
-    makeRequest(String url) {
+    public void makeRequest(String url) {
         final String enlace = url;
-        // Instantiate the RequestQueue.
-        mRequestQueue = Volley.newRequestQueue(this);
+
+        // Instantiate the RequestQueue
+        //mRequestQueue = Volley.newRequestQueue(this);
+        mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Conectando...");

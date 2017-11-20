@@ -4,14 +4,15 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.example.redacdat.red.Conectar;
+import com.example.redacdat.red.Resultado;
 
 public class AsincronaActivity extends AppCompatActivity {
 

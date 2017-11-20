@@ -1,4 +1,4 @@
-package com.example.redacdat;
+package com.example.redacdat.red;
 
 import java.io.BufferedReader;
 import java.io.IOException;
