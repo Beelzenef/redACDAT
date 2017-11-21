@@ -12,7 +12,8 @@
         android:id="@+id/edT_URLImagen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="http://192.168.3.57/acceso/picasso/perro.jpg"/>
+        android:text="http://moronlu18.com/wordpress/wp-content/uploads/2017/10/odoo-status_gui-300x143.png"/>
+            <!--"http://192.168.3.57/acceso/picasso/perro.jpg"/>-->
 
 
     <LinearLayout
@@ -28,12 +29,20 @@
             android:text="Descargar imagen"/>
 
         <Button
-            android:id="@+id/btn_DescargarFichero"
+            android:id="@+id/btn_DescargarPicasso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:onClick="onClick_descargarImgen"
             android:text="Descargar OkHTTP"/>
+
+        <Button
+            android:id="@+id/btn_DescargarFichero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:onClick="onClick_descargarImgen"
+            android:text="Descargar fichero"/>
 
     </LinearLayout>
 
