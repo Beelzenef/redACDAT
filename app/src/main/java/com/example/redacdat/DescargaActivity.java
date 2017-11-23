@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.redacdat.red.RestClient;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
@@ -72,21 +73,16 @@ public class DescargaActivity extends AppCompatActivity {
 
         // FileAsyncHttpResponseHandler
 
-        final File ficheroRenombrado = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "ficheroDescargado.png");
-
-        final AsyncHttpClient client = new AsyncHttpClient();
-        client.get(url, new FileAsyncHttpResponseHandler(this) {
+        final File ficheroRenombrado = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
+                url.substring(url.lastIndexOf('/')));
+        RestClient.get(url, new FileAsyncHttpResponseHandler(ficheroRenombrado) {
             @Override
             public void onStart() {
+                super.onStart();
                 progreso = new ProgressDialog(DescargaActivity.this);
                 progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progreso.setMessage("Buscando imagen...");
-                progreso.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        client.cancelRequests(DescargaActivity.this, true);
-                    }
-                });
+                progreso.setCancelable(false);
                 progreso.show();
             }
 
