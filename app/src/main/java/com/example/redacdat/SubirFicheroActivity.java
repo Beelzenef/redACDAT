@@ -1,6 +1,7 @@
 package com.example.redacdat;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,44 +47,43 @@ public class SubirFicheroActivity extends AppCompatActivity {
         File myFile;
         Boolean existe = true;
         myFile = new File(Environment.getExternalStorageDirectory(), fichero);
-//File myFile = new File("/path/to/file.png");
+        //File myFile = new File("/path/to/file.png");
         RequestParams params = new RequestParams();
         try {
             params.put("fileToUpload", myFile);
         } catch (FileNotFoundException e) {
             existe = false;
             txtV_InfoUpload.setText("Error en el fichero: " + e.getMessage());
-//Toast.makeText(this, "Error en el fichero: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Error en el fichero: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         if (existe) {
             RestClient.post(WEB, params, new TextHttpResponseHandler() {
 
                 @Override
-                public void onSuccess(int statusCode, Header[] headers, byte[] responseBytes) {
+                public void onStart() {
+                    // called before request is started
                     progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    progreso.setMessage("Buscando imagen...");
-                    progreso.setCancelable(false);
+                    progreso.setMessage("Conectando . . .");
+                    //progreso.setCancelable(false);
+                    progreso.setOnCancelListener(new DialogInterface.OnCancelListener(){
+                        public void onCancel(DialogInterface dialog){
+                            RestClient.cancelRequests(getApplicationContext(), true);
+                        }
+                    });
                     progreso.show();
                 }
-
                 @Override
-                public void onFailure(int statusCode, Header[] headers, byte[] responseBytes, Throwable throwable) {
-                    super.onFailure(statusCode, headers, responseBytes, throwable);
-                }
-
-                @Override
-                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                public void onSuccess(int statusCode, Header[] headers, String response) {
+                    // called when response HTTP status is "200 OK"
                     progreso.dismiss();
-                    txtV_InfoUpload.setText("Fallo " + statusCode);
+                    txtV_InfoUpload.setText("Fichero subido con éxito");
                 }
-
                 @Override
-                public void onSuccess(int statusCode, Header[] headers, String responseString) {
-
+                public void onFailure(int statusCode, Header[] headers, String response, Throwable t) {
+                    // called when response HTTP status is "4XX" (eg. 401, 403, 404)
                     progreso.dismiss();
-                    txtV_InfoUpload.setText(response);
+                    txtV_InfoUpload.setText("Error al subir el fichero: " + " CÓDIGO DE ERROR: " + statusCode + " CON EL SIGUIENTE MENSAJE: " + t.getMessage());
                 }
-
             });
         }
     }
